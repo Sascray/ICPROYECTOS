@@ -17,7 +17,7 @@
             color: #333;
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Cubre toda la altura */
+            min-height: 100vh;
         }
 
         header {
@@ -46,20 +46,50 @@
         }
 
         section {
-            flex: 1; /* Ocupa el espacio restante */
+            flex: 1;
             padding: 2rem;
             max-width: 900px;
             margin: auto;
         }
 
         footer {
-            text-align: center;
-            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 3rem;
             background-color: #5F6368; /* Plomo oscuro */
             color: #FFB300; /* Amarillo cálido */
             position: relative;
             bottom: 0;
             width: 100%;
+            box-sizing: border-box; /* Asegura que el padding no haga que se desborde */
+        }
+
+        footer img {
+            max-width: 100px; /* Tamaño del logo más pequeño */
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end; /* Alinea la información a la derecha */
+            justify-content: center;
+            text-align: right; /* Centrado del texto */
+            padding-left: 10px; /* Añadir algo de separación del logo */
+        }
+
+        .footer-info p {
+            margin: 0.3rem 0; /* Reducir márgenes para más espacio */
+            font-size: 14px; /* Reducir tamaño de fuente */
+        }
+
+        .footer-info a {
+            color: #FFB300;
+            text-decoration: none;
+        }
+
+        .footer-info a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
@@ -76,11 +106,20 @@
     </nav>
 
     <section>
-        <p>Explora nuestra galería de imágenes.</p>
+        <p></p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Mi Proyecto. Todos los derechos reservados.</p>
+        <!-- Logo a la izquierda -->
+        <img src="fotoic20.png" alt="Logo IC Proyectos">
+        
+        <!-- Información centrada a la derecha -->
+        <div class="footer-info">
+            <p>&copy; 2024 Mi Proyecto. Todos los derechos reservados.</p>
+            <p>Contacto: <a href="mailto:info@icproyectos.com">info@icproyectos.com</a></p>
+            <p>Dirección: Calle Ficticia 123, Ciudad, País</p>
+            <p>Teléfono: +123 456 7890</p>
+        </div>
     </footer>
 </body>
 </html>
