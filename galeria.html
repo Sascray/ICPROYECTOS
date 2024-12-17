@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-image: url"fotoic13.jpg"; /* Ruta de la imagen */
+            background-repeat: no-repeat; /* Evita que la imagen se repita */
+            background-position: center center; /* Centra la imagen */
+            background-size: cover; /* La imagen cubre todo el fondo */
+            background-color: #f4f4f4; /* Color de respaldo si no carga la imagen */
+            color: #333;
+        }
+    
+        header {
+            background-color: #5F6368; /* Plomo oscuro */
+            color: #FFB300; /* Amarillo cálido */
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444; /* Gris oscuro */
+        }
+    
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 1rem;
+            font-weight: bold;
+        }
+    
+        nav a:hover {
+            background-color: #888; /* Gris medio */
+        }
+    
+        section {
+            padding: 2rem;
+            max-width: 900px;
+            margin: auto;
+        }
+    
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #5F6368; /* Plomo oscuro */
+        }
+    
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+    
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            border: 2px solid #FFB300; /* Borde amarillo */
+        }
+    
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+    
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+    
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+    
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            overflow: auto;
+            padding-top: 50px;
+        }
+    
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 900px;
+        }
+    
+        .modal-content img {
+            width: 100%;
+            border-radius: 10px;
+        }
+    
+        .modal-description {
+            margin-top: 10px;
+        }
+    
+        .close {
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 25px;
+            transition: 0.3s;
+        }
+    
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1>Galería</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="galeria.html">Galería</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <section>
+        <h2>Nuestras Obras</h2>
+        <div class="gallery-container">
+            <!-- Imagen 1 -->
+            <div class="gallery-item" onclick="openModal('modal1')">
+                <img src="fotoic5.jpg" alt="Proyecto 1">
+                <div class="overlay">
+                    <h3>Proyecto 1</h3>
+                </div>
+            </div>
+    
+            <!-- Imagen 2 -->
+            <div class="gallery-item" onclick="openModal('modal2')">
+                <img src="fotoic6.jpg" alt="Proyecto 2">
+                <div class="overlay">
+                    <h3>Proyecto 2</h3>
+                </div>
+            </div>
+    
+            <!-- Imagen 3 -->
+            <div class="gallery-item" onclick="openModal('modal3')">
+                <img src="fotoic7.jpg" alt="Proyecto 3">
+                <div class="overlay">
+                    <h3>Proyecto 3</h3>
+                </div>
+            </div>
+    
+            <!-- Imagen 4 -->
+            <div class="gallery-item" onclick="openModal('modal4')">
+                <img src="fotoic10.jpg" alt="Proyecto 4">
+                <div class="overlay">
+                    <h3>Proyecto 4</h3>
+                </div>
+            </div>
+    
+            <!-- Imagen 5 -->
+            <div class="gallery-item" onclick="openModal('modal5')">
+                <img src="fotoic11.jpg" alt="Proyecto 5">
+                <div class="overlay">
+                    <h3>Proyecto 5</h3>
+                </div>
+            </div>
+    
+            <!-- Imagen 6 -->
+            <div class="gallery-item" onclick="openModal('modal6')">
+                <img src="fotoic12.jpg" alt="Proyecto 6">
+                <div class="overlay">
+                    <h3>Proyecto 6</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Modal 1 -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal1')">&times;</span>
+            <img src="fotoic5.jpg" alt="Proyecto 1">
+            <div class="modal-description">
+                <h3>Proyecto 1</h3>
+                <p>Descripción detallada del Proyecto 1.</p>
+                <div>
+                    <img src="fotoic6.jpg" alt="Foto adicional 1" style="width: 48%; margin-right: 2%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 2 -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal2')">&times;</span>
+            <img src="fotoic6.jpg" alt="Proyecto 2">
+            <div class="modal-description">
+                <h3>Proyecto 2</h3>
+                <p>Descripción detallada del Proyecto 2.</p>
+                <div>
+                    <img src="fotoic7.jpg" alt="Foto adicional 1" style="width: 48%; margin-right: 2%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 3 -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal3')">&times;</span>
+            <img src="fotoic7.jpg" alt="Proyecto 3">
+            <div class="modal-description">
+                <h3>Proyecto 3</h3>
+                <p>Descripción detallada del Proyecto 3.</p>
+                <div>
+                    <img src="fotoic8.jpg" alt="Foto adicional 1" style="width: 48%; margin-right: 2%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 4 -->
+    <div id="modal4" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal4')">&times;</span>
+            <img src="fotoic10.jpg" alt="Proyecto 4">
+            <div class="modal-description">
+                <h3>Proyecto 4</h3>
+                <p>Descripción detallada del Proyecto 4.</p>
+                <div>
+                    <img src="fotoic11.jpg" alt="Foto adicional 1" style="width: 48%; margin-right: 2%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 5 -->
+    <div id="modal5" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal5')">&times;</span>
+            <img src="fotoic11.jpg" alt="Proyecto 5">
+            <div class="modal-description">
+                <h3>Proyecto 5</h3>
+                <p>Descripción detallada del Proyecto 5.</p>
+                <div>
+                    <img src="fotoic12.jpg" alt="Foto adicional 1" style="width: 48%; margin-right: 2%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 6 -->
+    <div id="modal6" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modal6')">&times;</span>
+            <img src="fotoic12.jpg" alt="Proyecto 6">
+            <div class="modal-description">
+                <h3>Proyecto 6</h3>
+                <p>Descripción detallada del Proyecto 6.</p>
+                <div>
+                    <img src="fotoic13.jpg" alt="Foto adicional 1" style="width: 48%; margin-right: 2%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Mi Proyecto. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 1rem;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        section {
+            padding: 2rem;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .contact-item img {
+            width: 40px; /* Tamaño de la imagen */
+            height: 40px;
+            border-radius: 50%; /* Hacer la imagen circular */
+            margin-right: 1rem;
+        }
+
+        .contact-item h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item p {
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .contact-item a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #4CAF50;
+            color: white;
+            margin-top: 2rem;
+        }
+
+        .contact-item .icon {
+            width: 25px; /* Ajustar el tamaño del icono */
+            height: 25px;
+            margin-right: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Contacto</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="galeria.html">Galería</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <section>
+        <h2>Contáctanos</h2>
+        <div class="contact-container">
+            <!-- Correo Electrónico -->
+            <div class="contact-item">
+                <img src="fotoic.png" alt="Logo Empresa">
+                <img class="icon" src="fotoic3.png" alt="Gmail">
+                <div>
+                    <h3>Correo Electrónico</h3>
+                    <p><a href="mailto:contacto@icproyectosspa.com">contacto@icproyectosspa.com</a></p>
+                </div>
+            </div>
+
+            <!-- Instagram -->
+            <div class="contact-item">
+                <img src="fotoic.png" alt="Logo Empresa">
+                <img class="icon" src="fotoic4.png" alt="Instagram">
+                <div>
+                    <h3>Instagram</h3>
+                    <p><a href="https://instagram.com/icproyectos.spa" target="_blank">@icproyectos.spa</a></p>
+                </div>
+            </div>
+
+            <!-- WhatsApp -->
+            <div class="contact-item">
+                <img src="fotoic.png" alt="Logo Empresa">
+                <img class="icon" src="fotoic2.png" alt="WhatsApp">
+                <div>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/56946704988" target="_blank">+56 9 4670 4988</a></p>
+                </div>
+            </div>
+
+            <!-- Ámbito de Operación -->
+            <div class="contact-item">
+                <img src="fotoic.png" alt="Logo Empresa">
+                <div>
+                    <h3>Ámbito de Operación</h3>
+                    <p>Llegamos a todo Chile para ofrecerte los mejores servicios de mobiliario.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mi Proyecto. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

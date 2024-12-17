@@ -1,0 +1,29 @@
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.menu a {
+    color: red;
+    font-weight: bold;
+}
+body {
+    background-image: url('fotoic.png'); /* Cambia la ruta por la ubicación de tu imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
+    background-size: contain; /* Ajusta la imagen para que se vea completa */
+    background-color: #f4f4f4; /* Color de fondo de respaldo si la imagen no carga */
+    font-family: Arial, sans-serif;
+}
+
