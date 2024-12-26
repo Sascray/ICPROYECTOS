@@ -372,6 +372,19 @@ nav a:hover:after {
     padding: 0 1rem 1rem;
 }
 
+/* Estilos para los enlaces */
+.project-card a {
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit; /* Hereda el color de los estilos de h3 o p */
+    display: block; /* Hace que todo el contenido sea clicable */
+}
+
+.project-card a:hover {
+    color: var(--primary-color); /* Cambia el color al pasar el mouse */
+    text-decoration: underline; /* Subrayado opcional en hover */
+}
+
+
 /* Testimonios */
 .testimonial-card {
     width: 350px;
@@ -603,33 +616,40 @@ footer {
         </div>
     </section>
 
-    <!-- Sección de proyectos destacados -->
-    <section class="projects-section">
-        <h2 class="process-title">Proyectos Destacados</h2>
-        <div class="projects-grid">
-            <div class="project-card">
+<!-- Sección de proyectos destacados -->
+<section class="projects-section">
+    <h2 class="process-title">Proyectos Destacados</h2>
+    <div class="projects-grid">
+        <div class="project-card">
+            <a href="galeria.html#modal1">
                 <img src="fotoic5.jpg" alt="Cocina Moderna">
                 <div class="project-overlay">
                     <h3>Cocina Moderna</h3>
                     <p>Diseño personalizado para apartamento de lujo</p>
                 </div>
-            </div>
-            <div class="project-card">
+            </a>
+        </div>
+        <div class="project-card">
+            <a href="galeria.html#modal2">
                 <img src="fotoic13.jpg" alt="Vestidor">
                 <div class="project-overlay">
                     <h3>Vestidor de Diseño</h3>
                     <p>Optimización de espacio con acabados premium</p>
                 </div>
-            </div>
-            <div class="project-card">
-                <img src="fotoic14.jpg" alt="Oficina">
+            </a>
+        </div>
+        <div class="project-card">
+            <a href="galeria.html#modal6">
+                <img src="fotoic14.jpg" alt="Mobiliario de Oficina">
                 <div class="project-overlay">
                     <h3>Mobiliario de Oficina</h3>
                     <p>Soluciones corporativas a medida</p>
                 </div>
-            </div>
+            </a>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Sección de testimonios -->
     <section class="testimonials">

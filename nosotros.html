@@ -3,23 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IC PROYECTOS WEB</title>
+    <title>IC PROYECTOS WEB - Nosotros</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
-            background-image: url("fotoic14.jpg"); /* Fondo con la imagen */
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
             background-color: #f4f4f4;
             color: #333;
         }
 
         header {
-            background-color: #5F6368; /* Plomo oscuro */
-            color: #FFB300; /* Amarillo cálido */
+            background-color: #5F6368;
+            color: #FFB300;
             padding: 1rem;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -28,7 +24,7 @@
         nav {
             display: flex;
             justify-content: center;
-            background-color: #444; /* Gris oscuro */
+            background-color: #444;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
@@ -37,61 +33,137 @@
             text-decoration: none;
             padding: 1rem;
             font-weight: bold;
+            transition: background-color 0.3s;
         }
 
         nav a:hover {
-            background-color: #888; /* Gris medio */
+            background-color: #888;
         }
 
-        section {
-            padding: 2rem;
-            max-width: 800px;
-            margin: auto;
-            background-color: rgba(255, 255, 255, 0.9); /* Blanco con transparencia */
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2rem;
-            color: #5F6368; /* Plomo oscuro */
-        }
-
-        .about-container {
+        .hero-section {
+            height: 60vh;
+            background-image: url("fotoic.png");
+            background-size: cover;
+            background-position: center;
             display: flex;
-            flex-direction: column;
-            gap: 2rem;
             align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
         }
 
-        .about-card {
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #FFB300;
+        }
+
+        .content-section {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .vision-mission {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .vision-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .vision-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .vision-card h3 {
+            color: #5F6368;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .team-section {
+            background-color: #f8f9fa;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-member {
             background: white;
             padding: 1.5rem;
-            border-radius: 8px;
+            border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 600px;
-            text-align: center;
-            border: 2px solid #FFB300; /* Borde amarillo */
         }
 
-        .about-card h3 {
-            color: #5F6368; /* Plomo oscuro */
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
             margin-bottom: 1rem;
         }
 
-        .about-card p {
-            color: #555;
-            line-height: 1.6;
+        .values-section {
+            padding: 4rem 2rem;
+            background-color: #5F6368;
+            color: white;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 179, 0, 0.1);
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
         }
 
         footer {
             text-align: center;
             padding: 1rem;
-            background-color: #5F6368; /* Plomo oscuro */
-            color: #FFB300; /* Amarillo cálido */
-            margin-top: 2rem;
+            background-color: #5F6368;
+            color: #FFB300;
         }
     </style>
 </head>
@@ -107,29 +179,73 @@
         <a href="contacto.html">Contacto</a>
     </nav>
 
-    <section>
-        <h2>Nosotros</h2>
-        <div class="about-container">
-            <div class="about-card">
-                <h3>¿Quiénes Somos?</h3>
-                <p>Bienvenidos a IC Proyectos, líderes en el diseño, fabricación e instalación de muebles a medida. Ofrecemos soluciones únicas para hogares, entornos comerciales y corporativos, comprometidos con la calidad, la innovación y el diseño.</p>
+    <div class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Nuestra Historia</h1>
+            <p>Dedicados a crear espacios únicos y funcionales que transforman la vida de nuestros clientes</p>
+        </div>
+    </div>
+
+    <section class="content-section">
+        <h2 style="text-align: center; color: #5F6368; margin-bottom: 3rem;">Quiénes Somos</h2>
+        <div class="vision-mission">
+            <div class="vision-card">
+                <h3>Nuestra Visión</h3>
+                <p>Ser líderes reconocidos en el diseño y fabricación de muebles a medida, estableciendo nuevos estándares de calidad e innovación en la industria.</p>
             </div>
-            <div class="about-card">
-                <h3>¿Qué Realizamos?</h3>
-                <p>Nos especializamos en proyectos residenciales, comerciales y corporativos, incluyendo diseño integral, fabricación e instalación. También ofrecemos servicios subcontratados a empresas particulares.</p>
+            <div class="vision-card">
+                <h3>Nuestra Misión</h3>
+                <p>Crear soluciones de diseño excepcionales que superen las expectativas de nuestros clientes, mediante la excelencia en cada detalle y el compromiso con la calidad.</p>
             </div>
-            <div class="about-card">
-                <h3>Objetivos como Empresa</h3>
-                <p><strong>Satisfacción del Cliente:</strong> Garantizamos productos de alta calidad y servicios personalizados.</p>
-                <p><strong>Excelencia en Diseño:</strong> Ofrecemos soluciones creativas y funcionales que destacan en cualquier entorno.</p>
-                <p><strong>Crecimiento del Negocio:</strong> Ampliamos nuestra presencia en el mercado nacional, atrayendo nuevos segmentos.</p>
-                <p><strong>Calidad y Eficiencia:</strong> Mejoramos procesos para asegurar calidad constante y máxima eficiencia.</p>
+        </div>
+    </section>
+
+    <section class="values-section">
+        <h2 style="text-align: center; color: #FFB300; margin-bottom: 3rem;">Nuestros Valores</h2>
+        <div class="values-grid">
+            <div class="value-card">
+                <h3>Calidad</h3>
+                <p>Compromiso inquebrantable con la excelencia en cada proyecto</p>
+            </div>
+            <div class="value-card">
+                <h3>Innovación</h3>
+                <p>Búsqueda constante de soluciones creativas y funcionales</p>
+            </div>
+            <div class="value-card">
+                <h3>Compromiso</h3>
+                <p>Dedicación total a la satisfacción de nuestros clientes</p>
+            </div>
+            <div class="value-card">
+                <h3>Profesionalismo</h3>
+                <p>Excelencia en cada aspecto de nuestro trabajo</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <h2 style="color: #5F6368; margin-bottom: 3rem;">Nuestro Equipo</h2>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="fotoic.png" alt="Miembro del equipo">
+                <h3>Elias</h3>
+                <p>Jefe de taller</p>
+            </div>
+            <div class="team-member">
+                <img src="fotoic.png" alt="Miembro del equipo">
+                <h3>Ismael Cea</h3>
+                <p>Jefe de Empresa</p>
+            </div>
+            <div class="team-member">
+                <img src="fotoic.png" alt="Miembro del equipo">
+                <h3>Nelson Maureira</h3>
+                <p>Maestro en pintura</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2024 Mi Proyecto. Todos los derechos reservados.</p>
+        <p>&copy; 2024 IC PROYECTOS WEB. Todos los derechos reservados.</p>
     </footer>
 </body>
 </html>
