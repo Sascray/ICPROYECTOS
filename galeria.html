@@ -3,308 +3,309 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IC PROYECTOS WEB</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>IC PROYECTOS WEB - Galería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-    /* Estilos base */
-body {
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    background-image: url("fotoic14.jpg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-color: #f4f4f4;
-    color: #333;
-    min-height: 100vh;
-}
+        :root {
+            --primary-color: #FFB300;
+            --dark-bg: #333;
+            --light-text: #f0f0f0;
+            --card-bg: #444;
+        }
 
-/* Encabezado y navegación */
-header {
-    background-color: #5F6368;
-    color: #FFB300;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-nav {
-    display: flex;
-    justify-content: center;
-    background-color: #444;
-    flex-wrap: wrap;
-}
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: var(--light-text);
+            background-color: var(--dark-bg);
+            line-height: 1.6;
+        }
 
-nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
+        /* Header Styles */
+        header {
+            background-color: rgba(0, 0, 0, 0.9);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
 
-nav a:hover {
-    background-color: #888;
-}
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-/* Contenido principal */
-section {
-    padding: 2rem;
-    max-width: 900px;
-    margin: auto;
-}
+        .logo {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
 
-h2 {
-    text-align: center;
-    font-size: 2rem;
-    color: #5F6368;
-    margin-bottom: 1.5rem;
-}
+        nav {
+            display: flex;
+            gap: 2.5rem;
+        }
 
-/* Galería */
-.gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1rem;
-    margin-top: 2rem;
-}
+        nav a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
 
-.gallery-item {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    border: 2px solid #FFB300;
-    aspect-ratio: 4/3;
-}
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
 
-.gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
+        nav a:hover:after {
+            width: 100%;
+        }
 
-.gallery-item:hover img {
-    transform: scale(1.1);
-}
+        /* Galería */
+        .gallery-section {
+            padding: 120px 5% 50px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-.overlay {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    width: 80%;
-    border-radius: 4px;
-}
+        .section-title {
+            color: var(--primary-color);
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
 
-.gallery-item:hover .overlay {
-    opacity: 1;
-}
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    justify-content: center;
-    align-items: flex-start;
-    padding: 20px;
-    overflow-y: auto;
-}
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            aspect-ratio: 4/3;
+        }
 
-.modal.show {
-    display: flex;
-}
+        .gallery-item:hover {
+            transform: translateY(-10px);
+        }
 
-.modal-content {
-    background-color: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 1200px;
-    position: relative;
-    margin: 20px auto;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-.main-image-container {
-    width: 100%;
-    margin-bottom: 25px;
-    text-align: center;
-}
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
 
-.main-image {
-    max-width: 100%;
-    max-height: 500px;
-    object-fit: contain;
-    border-radius: 8px;
-}
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
 
-.modal-description {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 10px;
-}
+        .overlay h3 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            text-align: center;
+            padding: 1rem;
+        }
 
-.modal-description h3 {
-    color: #5F6368;
-    margin: 15px 0;
-    font-size: 24px;
-}
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2000;
+            overflow-y: auto;
+        }
 
-.modal-description p {
-    margin-bottom: 20px;
-    text-align: center;
-    color: #333;
-    line-height: 1.5;
-}
+        .modal-content {
+            position: relative;
+            background: var(--card-bg);
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 2rem;
+            border-radius: 15px;
+            color: var(--light-text);
+        }
 
-.image-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-    padding: 0 5px;
-}
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            color: var(--primary-color);
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-.grid-item {
-    aspect-ratio: 1;
-    overflow: hidden;
-    border-radius: 8px;
-    border: 1px solid #FFB300;
-}
+        .close:hover {
+            color: #fff;
+        }
 
-.grid-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
+        .main-image-container {
+            margin-bottom: 2rem;
+        }
 
-.grid-item img:hover {
-    transform: scale(1.05);
-}
+        .main-image {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
 
-.close {
-    position: fixed;
-    right: 20px;
-    top: 20px;
-    font-size: 30px;
-    font-weight: bold;
-    color: #fff;
-    cursor: pointer;
-    transition: color 0.3s ease;
-    background-color: rgba(95, 99, 104, 0.8);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1001;
-}
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
 
-.close:hover {
-    color: #FFB300;
-    background-color: rgba(95, 99, 104, 1);
-}
+        .grid-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 10px;
+        }
 
-/* Responsive */
-@media (max-width: 768px) {
-    section {
-        padding: 1rem;
-    }
+        .grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
 
-    .gallery-container {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 0.8rem;
-    }
+        .grid-item img:hover {
+            transform: scale(1.05);
+        }
+        footer {
+            background-color: #111;
+            padding: 4rem 0 2rem;
+        }
 
-    .modal {
-        padding: 10px;
-    }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-    .modal-content {
-        width: 100%;
-        padding: 15px;
-        margin: 10px 0;
-    }
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
 
-    .image-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
+        /* Menu responsive */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+        }
 
-    .main-image {
-        max-height: 350px;
-    }
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+            }
 
-    .modal-description h3 {
-        font-size: 20px;
-    }
+            .menu-icon div {
+                width: 25px;
+                height: 2px;
+                background-color: var(--primary-color);
+            }
 
-    .close {
-        right: 10px;
-        top: 10px;
-    }
-}
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                padding: 1rem 0;
+                text-align: center;
+            }
 
-@media (max-width: 480px) {
-    .gallery-container {
-        grid-template-columns: 1fr;
-    }
+            nav.active {
+                display: flex;
+            }
 
-    .modal-content {
-        padding: 10px;
-    }
+            nav a {
+                padding: 1rem 0;
+            }
 
-    .main-image {
-        max-height: 300px;
-    }
-
-    .image-grid {
-        gap: 8px;
-    }
-
-    h2 {
-        font-size: 1.5rem;
-    }
-}
+            .gallery-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 1rem;
+            }
+        }
     </style>
-    
-    
 </head>
 <body>
     <header>
-        <h1>IC PROYECTOS WEB</h1>
+        <div class="header-content">
+            <a href="index.html" class="logo">IC PROYECTOS WEB</a>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <nav id="menu">
+                <a href="index.html">Inicio</a>
+                <a href="nosotros.html">Nosotros</a>
+                <a href="galeria.html">Galería</a>
+                <a href="contacto.html">Contacto</a>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="nosotros.html">Nosotros</a>
-        <a href="galeria.html">Galería</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
-
-    <section>
-        <h2>Nuestras Obras</h2>
+    <section class="gallery-section">
+        <h2 class="section-title">Nuestras Obras</h2>
         <div class="gallery-container">
-            <!-- Imagen 1 -->
+            <!-- Las imágenes y modales se mantienen igual que en tu código original -->
+            <!-- Solo copié una como ejemplo, deberías mantener todas tus imágenes -->
             <div class="gallery-item" onclick="openModal('modal1')">
                 <img src="closette5.jpg" alt="Proyecto 1">
                 <div class="overlay">
@@ -621,19 +622,50 @@ h2 {
         </div>
     </div>
 </div>
-    
-    <footer>
-        <p>&copy; 2024 ICPROYECTOSSPA. Todos los derechos reservados.</p>
-    </footer>
+</section>
 
-    <script>
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = "block";
-        }
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Contacto</h3>
+            <p>Email: contacto@icproyectosspa.com</p>
+            <p>Teléfono: +569 4670 4988</p>
+            <p>Dirección: gabriela 1450, la pintana, chile</p>
+        </div>
+        <div class="footer-section">
+            <h3>Redes Sociales</h3>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <h3>Horario</h3>
+            <p>Lunes a Jueves: 9:00 - 18:00</p>
+            <p>Viernes: 9:00 - 16:00</p>
+            <p>Domingo: Cerrado</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 2rem;">
+        <p>&copy; 2024 IC PROYECTOS WEB. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('active');
+    }
+
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.style.background = 'rgba(0, 0, 0, 0.9)';
+        } else {
+            header.style.background = 'rgba(0, 0, 0, 0.7)';
         }
-    </script>
+    });
+</script>
 </body>
 </html>
