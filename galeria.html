@@ -146,6 +146,17 @@
             text-align: center;
             padding: 1rem;
         }
+        .social-links a {
+    color: var(--light-text);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--primary-color);
+}
 
         /* Modal Styles */
         .modal {
@@ -236,12 +247,25 @@
             color: var(--primary-color);
             margin-bottom: 1.5rem;
         }
+        
+        
 
         /* Menu responsive */
         .menu-icon {
             display: none;
             cursor: pointer;
         }
+        .map-container {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.map-container iframe {
+    width: 100%;
+    border-radius: 10px;
+}
 
         @media (max-width: 768px) {
             .menu-icon {
@@ -280,6 +304,7 @@
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
                 gap: 1rem;
             }
+            
         }
     </style>
 </head>
@@ -646,26 +671,57 @@
             <p>Viernes: 9:00 - 16:00</p>
             <p>Domingo: Cerrado</p>
         </div>
-    </div>
+        <div class="footer-section">
+            <h3>Ubicación</h3>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3325.5911518666696!2d-70.6956893!3d-33.5766799!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662d7af35b92d65%3A0x8e27f5e07cd37d28!2sAv.%20Gabriela%2002811%2C%20La%20Pintana%2C%20Regi%C3%B3n%20Metropolitana%2C%20Chile!5e0!3m2!1ses!2s!4v1704409433461!5m2!1ses!2s"
+                    width="100%" 
+                    height="250" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
     <div style="text-align: center; margin-top: 2rem;">
         <p>&copy; 2024 IC PROYECTOS WEB. Todos los derechos reservados.</p>
     </div>
 </footer>
 
 <script>
-    function toggleMenu() {
-        const menu = document.getElementById('menu');
-        menu.classList.toggle('active');
-    }
+    function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Previene el scroll del body cuando el modal está abierto
+}
 
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('header');
-        if (window.scrollY > 50) {
-            header.style.background = 'rgba(0, 0, 0, 0.9)';
-        } else {
-            header.style.background = 'rgba(0, 0, 0, 0.7)';
-        }
-    });
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+    document.body.style.overflow = 'auto'; // Restaura el scroll del body
+}
+
+// Cerrar el modal cuando se hace clic fuera del contenido
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+}
+
+function toggleMenu() {
+    const menu = document.getElementById('menu');
+    menu.classList.toggle('active');
+}
+
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    if (window.scrollY > 50) {
+        header.style.background = 'rgba(0, 0, 0, 0.9)';
+    } else {
+        header.style.background = 'rgba(0, 0, 0, 0.7)';
+    }
+});
 </script>
 </body>
 </html>
