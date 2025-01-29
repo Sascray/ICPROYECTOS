@@ -350,7 +350,7 @@
             <div class="gallery-item" onclick="openModal('modal3')">
                 <img src="fotoic12.jpg" alt="Proyecto 3">
                 <div class="overlay">
-                    <h3>Proyecto Cocina </h3>
+                    <h3>Proyecto Cocina Lacada</h3>
                 </div>
             </div>
     
@@ -358,7 +358,7 @@
             <div class="gallery-item" onclick="openModal('modal4')">
                 <img src="cocinamo1.jpg" alt="Proyecto 4">
                 <div class="overlay">
-                    <h3>Proyecto Cocina</h3>
+                    <h3>Proyecto Cocina Moderna</h3>
                 </div>
             </div>
     
@@ -485,7 +485,7 @@
         </div>
 
         <div class="modal-description">
-            <h3>Proyecto Cocina</h3>
+            <h3>Proyecto Cocina Lacada</h3>
             <p>
                 Este proyecto involucró la remodelación de una cocina compacta, adaptándola para maximizar el espacio disponible. 
                 Se emplearon superficies de cuarzo en tonos claros para las cubiertas, creando un ambiente luminoso y elegante. 
@@ -522,7 +522,7 @@
         </div>
 
         <div class="modal-description">
-            <h3>Proyecto Cocina</h3>
+            <h3>Proyecto Cocina Moderna</h3>
             <p>
                 Diseñamos esta cocina moderna con un enfoque en la funcionalidad y la estética. 
                 Incorporamos armarios con acabado brillante en tonos oscuros, complementados por detalles en acero inoxidable. 
@@ -772,6 +772,53 @@ window.addEventListener('scroll', function() {
         header.style.background = 'rgba(0, 0, 0, 0.7)';
     }
 });
+</script>
+<script>
+    // Función para obtener parámetros de la URL
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    // Función para abrir el modal cuando se carga la página
+    document.addEventListener('DOMContentLoaded', function() {
+        const modalId = getQueryParam('modal');
+        if (modalId) {
+            openModal(modalId);
+        }
+    });
+
+    function openModal(modalId) {
+        document.getElementById(modalId).style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = 'none';
+        document.body.style.overflow = 'auto';
+    }
+
+    // Cerrar el modal cuando se hace clic fuera del contenido
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    }
+
+    function toggleMenu() {
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('active');
+    }
+
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('header');
+        if (window.scrollY > 50) {
+            header.style.background = 'rgba(0, 0, 0, 0.9)';
+        } else {
+            header.style.background = 'rgba(0, 0, 0, 0.7)';
+        }
+    });
 </script>
 </body>
 </html>
