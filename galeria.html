@@ -447,14 +447,25 @@
         </div>
     </section>
     
-<!-- Modal 1 -->
+<!-- Agregar carrusel dentro del modal -->
 <div id="modal1" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal1')">&times;</span>
         
-        <!-- Imagen principal -->
-        <div class="main-image-container">
-            <img src="closette1.jpg" alt="Proyecto 1" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal1')">&#10094;</button>
+            <img class="carousel-image" src="closette1.jpg" alt="Proyecto 1">
+            <button class="next" onclick="changeSlide(1, 'modal1')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal1')"><img src="closette1.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal1')"><img src="closette2.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal1')"><img src="closette3.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal1')"><img src="closette4.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal1')"><img src="closette5.jpg" alt="Foto 5"></div>
         </div>
 
         <div class="modal-description">
@@ -462,40 +473,105 @@
             <p>
                 Este proyecto consistió en diseñar e instalar 3 walking closet funcionales y modernos en los dormitorios para la vivienda unifamiliar. 
                 Utilizamos melamina de alta calidad marca masisa en color blanco mate, con detalles en melamina de color madera. 
-                El diseño incluye compartimentos amplios, cajones con sistema cierre suave para mejor versatilidad y amplio espacio para colgar ropa
+                El diseño incluye compartimentos amplios, cajones con sistema cierre suave para mejor versatilidad y amplio espacio para colgar ropa.
                 El espacio limitado presentó un reto interesante, que solucionamos maximizando la capacidad de almacenamiento 
                 sin comprometer el diseño estético. El cliente quedó encantado con el resultado final: un closet que combina 
                 funcionalidad y estilo a la perfección.
             </p>
-            
-            <!-- Galería de imágenes adicionales -->
-            <div class="additional-images">
-                <div class="image-grid">
-                    <div class="grid-item">
-                        <img src="closette2.jpg" alt="Foto adicional 1">
-                    </div>
-                    <div class="grid-item">
-                        <img src="closette3.jpg" alt="Foto adicional 2">
-                    </div>
-                    <div class="grid-item">
-                        <img src="closette4.jpg" alt="Foto adicional 3">
-                    </div>
-                    <div class="grid-item">
-                        <img src="closette5.jpg" alt="Foto adicional 4">
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
-<!-- Modal 2 -->
+<style>
+    .carousel-container {
+        position: relative;
+        text-align: center;
+    }
+
+    .carousel-image {
+        width: 100%;
+        max-height: 500px;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 1.5rem;
+        border-radius: 50%;
+    }
+
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    .image-thumbnails {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+    .thumbnail img {
+        width: 80px;
+        height: 60px;
+        object-fit: cover;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+
+    .thumbnail img:hover {
+        transform: scale(1.1);
+    }
+</style>
+
+<script>
+    let slideIndex = 0;
+    let images = [
+        "closette1.jpg", "closette2.jpg", "closette3.jpg", "closette4.jpg", "closette5.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        slideIndex += step;
+        if (slideIndex >= images.length) slideIndex = 0;
+        if (slideIndex < 0) slideIndex = images.length - 1;
+
+        document.querySelector(`#${modalId} .carousel-image`).src = images[slideIndex];
+    }
+
+    function setSlide(index, modalId) {
+        slideIndex = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images[slideIndex];
+    }
+</script>
+
+
+<!-- Modal 2 con carrusel -->
 <div id="modal2" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal2')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="cocinaab1.jpg" alt="Proyecto 2" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal2')">&#10094;</button>
+            <img class="carousel-image" src="cocinaab1.jpg" alt="Proyecto 2">
+            <button class="next" onclick="changeSlide(1, 'modal2')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal2')"><img src="cocinaab1.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal2')"><img src="cocinaab4.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal2')"><img src="cocinaab5.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal2')"><img src="cocinaab6.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal2')"><img src="cocinaab7.jpg" alt="Foto 5"></div>
         </div>
 
         <div class="modal-description">
@@ -506,33 +582,66 @@
                 Los detalles en aluminio y los colores neutros añadieron un toque contemporáneo. 
                 Este proyecto fue diseñado para combinar estilo y practicidad, logrando un ambiente acogedor y funcional para la familia.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="cocinaab4.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="cocinaab5.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="cocinaab6.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="cocinaab7.jpg" alt="Foto adicional 4">
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
-<!-- Modal 3 -->
+<script>
+    let slideIndex2 = 0;
+    let images2 = [
+        "cocinaab1.jpg", "cocinaab4.jpg", "cocinaab5.jpg", "cocinaab6.jpg", "cocinaab7.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        let index = modalId === 'modal1' ? slideIndex : slideIndex2;
+        let imageArray = modalId === 'modal1' ? images : images2;
+
+        index += step;
+        if (index >= imageArray.length) index = 0;
+        if (index < 0) index = imageArray.length - 1;
+
+        document.querySelector(`#${modalId} .carousel-image`).src = imageArray[index];
+
+        if (modalId === 'modal1') {
+            slideIndex = index;
+        } else {
+            slideIndex2 = index;
+        }
+    }
+
+    function setSlide(index, modalId) {
+        let imageArray = modalId === 'modal1' ? images : images2;
+        document.querySelector(`#${modalId} .carousel-image`).src = imageArray[index];
+
+        if (modalId === 'modal1') {
+            slideIndex = index;
+        } else {
+            slideIndex2 = index;
+        }
+    }
+</script>
+
+
+<!-- Modal 3 con carrusel -->
 <div id="modal3" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal3')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fotoicBZ.jpg" alt="Proyecto 3" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal3')">&#10094;</button>
+            <img class="carousel-image" src="fotoicBZ.jpg" alt="Proyecto 3">
+            <button class="next" onclick="changeSlide(1, 'modal3')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal3')"><img src="fotoicBZ.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal3')"><img src="fotoicBZ4.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal3')"><img src="fotoicBZ2.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal3')"><img src="fotoicBZ3.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal3')"><img src="fotoicBZ5.jpg" alt="Foto 5"></div>
+            <div class="thumbnail" onclick="setSlide(5, 'modal3')"><img src="fotoicBZ7.jpg" alt="Foto 6"></div>
         </div>
 
         <div class="modal-description">
@@ -543,39 +652,50 @@
                 Los módulos personalizados brindan almacenamiento eficiente, mientras que la integración de electrodomésticos permitió mantener un diseño limpio y organizado. 
                 Un proyecto pensado para ofrecer comodidad y estética en un espacio reducido.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="fotoicBZ4.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicBZ2.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicBZ3.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicBZ.jpg" alt="Foto adicional 4">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicBZ5.jpg" alt="Foto adicional 5">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicBZ7.jpg" alt="Foto adicional 6">
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
-<!-- Modal 4 -->
+<script>
+    let slideIndex3 = 0;
+    let images3 = [
+        "fotoicBZ.jpg", "fotoicBZ4.jpg", "fotoicBZ2.jpg", "fotoicBZ3.jpg", "fotoicBZ5.jpg", "fotoicBZ7.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal3') return;
+        slideIndex3 += step;
+        if (slideIndex3 >= images3.length) slideIndex3 = 0;
+        if (slideIndex3 < 0) slideIndex3 = images3.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images3[slideIndex3];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal3') return;
+        slideIndex3 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images3[slideIndex3];
+    }
+</script>
+
+<!-- Modal 4 con carrusel -->
 <div id="modal4" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal4')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="cocinamo1.jpg" alt="Proyecto 4" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal4')">&#10094;</button>
+            <img class="carousel-image" src="cocinamo1.jpg" alt="Proyecto 4">
+            <button class="next" onclick="changeSlide(1, 'modal4')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal4')"><img src="cocinamo1.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal4')"><img src="fotoicBC.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal4')"><img src="fotoicBC2.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal4')"><img src="fotoicBC4.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal4')"><img src="cocinamo5.jpg" alt="Foto 5"></div>
         </div>
 
         <div class="modal-description">
@@ -586,25 +706,30 @@
                 Las cubiertas de granito agregaron durabilidad y sofisticación, mientras que la iluminación LED en las áreas de trabajo realzó el diseño. 
                 Esta cocina fue creada para satisfacer las necesidades diarias con un estilo contemporáneo y práctico.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="fotoicBC.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicBC2.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicBC4.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="cocinamo5.jpg" alt="Foto adicional 4">
-                </div>
-            </div>
         </div>
     </div>
 </div>
+
+<script>
+    let slideIndex4 = 0;
+    let images4 = [
+        "cocinamo1.jpg", "fotoicBC.jpg", "fotoicBC2.jpg", "fotoicBC4.jpg", "cocinamo5.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal4') return;
+        slideIndex4 += step;
+        if (slideIndex4 >= images4.length) slideIndex4 = 0;
+        if (slideIndex4 < 0) slideIndex4 = images4.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images4[slideIndex4];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal4') return;
+        slideIndex4 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images4[slideIndex4];
+    }
+</script>
 
 <!-- Modal 5 -->
 <div id="modal5" class="modal">
