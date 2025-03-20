@@ -305,6 +305,7 @@
                 gap: 1rem;
             }
             
+            
         }
     </style>
 </head>
@@ -735,13 +736,25 @@
     }
 </script>
 
-<!-- Modal 5 -->
+<!-- Modal 5 con carrusel -->
 <div id="modal5" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal5')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="cruzv5.jpg" alt="Proyecto 5" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal5')">&#10094;</button>
+            <img class="carousel-image" src="cruzv5.jpg" alt="Proyecto 5">
+            <button class="next" onclick="changeSlide(1, 'modal5')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal5')"><img src="cruzv5.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal5')"><img src="cruzv1.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal5')"><img src="cruzv2.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal5')"><img src="cruzv3.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal5')"><img src="cruzv4.jpg" alt="Foto 5"></div>
         </div>
 
         <div class="modal-description">
@@ -752,33 +765,50 @@
                 El diseño incluyó estanterías modulares, vitrinas y mostradores con gran capacidad de almacenamiento. 
                 Este espacio combina eficiencia operativa con un ambiente agradable para los clientes.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="cruzv1.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="cruzv2.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="cruzv3.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="cruzv4.jpg" alt="Foto adicional 4">
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
-<!-- Modal 6 -->
+<script>
+    let slideIndex5 = 0;
+    let images5 = [
+        "cruzv5.jpg", "cruzv1.jpg", "cruzv2.jpg", "cruzv3.jpg", "cruzv4.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal5') return;
+        slideIndex5 += step;
+        if (slideIndex5 >= images5.length) slideIndex5 = 0;
+        if (slideIndex5 < 0) slideIndex5 = images5.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images5[slideIndex5];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal5') return;
+        slideIndex5 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images5[slideIndex5];
+    }
+</script>
+
+<!-- Modal 6 con carrusel -->
 <div id="modal6" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal6')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fotoic9.jpg" alt="Proyecto 6" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal6')">&#10094;</button>
+            <img class="carousel-image" src="fotoic9.jpg" alt="Proyecto 6">
+            <button class="next" onclick="changeSlide(1, 'modal6')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal6')"><img src="fotoic9.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal6')"><img src="dulce2.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal6')"><img src="dulce3.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal6')"><img src="fotoic10.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal6')"><img src="dulce1.jpg" alt="Foto 5"></div>
         </div>
 
         <div class="modal-description">
@@ -790,33 +820,51 @@
                 Además, incorporamos áreas de almacenamiento oculto para mantener el orden y facilitar las operaciones diarias. 
                 Un espacio ideal para resaltar la dulzura y calidad de los productos.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="dulce2.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="dulce3.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoic10.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="dulce1.jpg" alt="Foto adicional 4">
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
-<!-- Modal 7 -->
+<script>
+    let slideIndex6 = 0;
+    let images6 = [
+        "fotoic9.jpg", "dulce2.jpg", "dulce3.jpg", "fotoic10.jpg", "dulce1.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal6') return;
+        slideIndex6 += step;
+        if (slideIndex6 >= images6.length) slideIndex6 = 0;
+        if (slideIndex6 < 0) slideIndex6 = images6.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images6[slideIndex6];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal6') return;
+        slideIndex6 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images6[slideIndex6];
+    }
+</script>
+
+
+<!-- Modal 7 con carrusel -->
 <div id="modal7" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal7')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="escritorioin4.jpg" alt="Proyecto 7" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal7')">&#10094;</button>
+            <img class="carousel-image" src="escritorioin4.jpg" alt="Proyecto 7">
+            <button class="next" onclick="changeSlide(1, 'modal7')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal7')"><img src="escritorioin4.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal7')"><img src="escritorioin1.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal7')"><img src="escritorioin3.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal7')"><img src="escritorioin5.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal7')"><img src="escritorioin6.jpg" alt="Foto 5"></div>
         </div>
 
         <div class="modal-description">
@@ -827,33 +875,50 @@
                 y una superficie amplia para trabajar cómodamente. Se añadieron detalles en metal negro mate para un toque industrial. 
                 El resultado es un escritorio que combina practicidad, durabilidad y estilo, perfecto para el uso diario.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="escritorioin1.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="escritorioin3.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="escritorioin5.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="escritorioin6.jpg" alt="Foto adicional 4">
-                </div>
-            </div>
         </div>
     </div>
 </div>
 
-<!-- Modal 8 -->
+<script>
+    let slideIndex7 = 0;
+    let images7 = [
+        "escritorioin4.jpg", "escritorioin1.jpg", "escritorioin3.jpg", "escritorioin5.jpg", "escritorioin6.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal7') return;
+        slideIndex7 += step;
+        if (slideIndex7 >= images7.length) slideIndex7 = 0;
+        if (slideIndex7 < 0) slideIndex7 = images7.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images7[slideIndex7];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal7') return;
+        slideIndex7 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images7[slideIndex7];
+    }
+</script>
+
+<!-- Modal 8 con carrusel -->
 <div id="modal8" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal8')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fiold5.jpg" alt="Proyecto 8" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal8')">&#10094;</button>
+            <img class="carousel-image" src="fiold5.jpg" alt="Proyecto 8">
+            <button class="next" onclick="changeSlide(1, 'modal8')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal8')"><img src="fiold5.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal8')"><img src="fiold1.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal8')"><img src="fiold2.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal8')"><img src="fiold3.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal8')"><img src="fiold4.jpg" alt="Foto 5"></div>
         </div>
 
         <div class="modal-description">
@@ -864,35 +929,52 @@
                 Los muebles personalizados incluyen estantes modulares, mesas de exhibición y áreas de almacenamiento oculto. 
                 Este diseño logra un balance perfecto entre funcionalidad y estética, reflejando la identidad de la marca.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="fiold1.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="fiold2.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fiold3.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="fiold4.jpg" alt="Foto adicional 4">
-                </div>
-            </div>
         </div>
     </div>
 </div>
-</section>
+
+<script>
+    let slideIndex8 = 0;
+    let images8 = [
+        "fiold5.jpg", "fiold1.jpg", "fiold2.jpg", "fiold3.jpg", "fiold4.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal8') return;
+        slideIndex8 += step;
+        if (slideIndex8 >= images8.length) slideIndex8 = 0;
+        if (slideIndex8 < 0) slideIndex8 = images8.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images8[slideIndex8];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal8') return;
+        slideIndex8 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images8[slideIndex8];
+    }
+</script>
 
 
-<!-- Modal 9 -->
+<!-- Modal 9 con carrusel -->
 <div id="modal9" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal9')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fotoicCA6.jpg" alt="Proyecto 9" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal9')">&#10094;</button>
+            <img class="carousel-image" src="fotoicCA6.jpg" alt="Proyecto 9">
+            <button class="next" onclick="changeSlide(1, 'modal9')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal9')"><img src="fotoicCA6.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal9')"><img src="fotoicCA2.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal9')"><img src="fotoicCA3.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal9')"><img src="fotoicCA4.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal9')"><img src="fotoicCA5.jpg" alt="Foto 5"></div>
+            <div class="thumbnail" onclick="setSlide(5, 'modal9')"><img src="fotoicCA.jpg" alt="Foto 6"></div>
         </div>
 
         <div class="modal-description">
@@ -903,38 +985,53 @@
                 Los muebles incluyen estanterías, barras de atención y áreas de almacenamiento optimizadas para mejorar la experiencia
                 del cliente y la eficiencia del negocio.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="fotoicCA2.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicCA3.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicCA4.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicCA5.jpg" alt="Foto adicional 4">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicCA.jpg" alt="Foto adicional 5">
-                </div>
-            </div>
         </div>
     </div>
 </div>
-</section>
+
+<script>
+    let slideIndex9 = 0;
+    let images9 = [
+        "fotoicCA6.jpg", "fotoicCA2.jpg", "fotoicCA3.jpg", "fotoicCA4.jpg", "fotoicCA5.jpg", "fotoicCA.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal9') return;
+        slideIndex9 += step;
+        if (slideIndex9 >= images9.length) slideIndex9 = 0;
+        if (slideIndex9 < 0) slideIndex9 = images9.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images9[slideIndex9];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal9') return;
+        slideIndex9 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images9[slideIndex9];
+    }
+</script>
 
 
-<!-- Modal 10 -->
+<!-- Modal 10 con carrusel -->
 <div id="modal10" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal10')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fotoicWC7.jpg" alt="Proyecto 10" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal10')">&#10094;</button>
+            <img class="carousel-image" src="fotoicWC7.jpg" alt="Proyecto 10">
+            <button class="next" onclick="changeSlide(1, 'modal10')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal10')"><img src="fotoicWC7.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal10')"><img src="fotoicWC.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal10')"><img src="fotoicWC2.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal10')"><img src="fotoicWC3.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal10')"><img src="fotoicWC5.jpg" alt="Foto 5"></div>
+            <div class="thumbnail" onclick="setSlide(5, 'modal10')"><img src="fotoicWC6.jpg" alt="Foto 6"></div>
+            <div class="thumbnail" onclick="setSlide(6, 'modal10')"><img src="fotoicWC4.jpg" alt="Foto 7"></div>
         </div>
 
         <div class="modal-description">
@@ -944,41 +1041,53 @@
                 Se utilizaron materiales de alta calidad, con acabados elegantes y modernos. El diseño incluye cajoneras, 
                 compartimentos especiales y espacios adaptados a las necesidades del cliente, garantizando orden y estilo.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="fotoicWC.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicWC2.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicWC3.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicWC5.jpg" alt="Foto adicional 4">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicWC6.jpg" alt="Foto adicional 5">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicWC4.jpg" alt="Foto adicional 6">
-                </div>
-            </div>
         </div>
     </div>
 </div>
-</section>
+
+<script>
+    let slideIndex10 = 0;
+    let images10 = [
+        "fotoicWC7.jpg", "fotoicWC.jpg", "fotoicWC2.jpg", "fotoicWC3.jpg", "fotoicWC5.jpg", "fotoicWC6.jpg", "fotoicWC4.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal10') return;
+        slideIndex10 += step;
+        if (slideIndex10 >= images10.length) slideIndex10 = 0;
+        if (slideIndex10 < 0) slideIndex10 = images10.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images10[slideIndex10];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal10') return;
+        slideIndex10 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images10[slideIndex10];
+    }
+</script>
 
 
-<!-- Modal 11 -->
+<!-- Modal 11 con carrusel -->
 <div id="modal11" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal11')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fotoicMUT.jpg" alt="Proyecto 11" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal11')">&#10094;</button>
+            <img class="carousel-image" src="fotoicMUT.jpg" alt="Proyecto 11">
+            <button class="next" onclick="changeSlide(1, 'modal11')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal11')"><img src="fotoicMUT.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal11')"><img src="fotoicMUT2.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal11')"><img src="fotoicMUT3.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal11')"><img src="fotoicMUT4.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal11')"><img src="fotoicMUT5.jpg" alt="Foto 5"></div>
+            <div class="thumbnail" onclick="setSlide(5, 'modal11')"><img src="fotoicMUT6.jpg" alt="Foto 6"></div>
+            <div class="thumbnail" onclick="setSlide(6, 'modal11')"><img src="fotoicMUT7.jpg" alt="Foto 7"></div>
         </div>
 
         <div class="modal-description">
@@ -989,41 +1098,48 @@
                 con acabados premium. El mobiliario incluye recepciones, áreas de espera y detalles decorativos
                 que refuerzan la identidad visual del espacio.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="fotoicMUT2.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicMUT3.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicMUT4.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicMUT5.jpg" alt="Foto adicional 4">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicMUT6.jpg" alt="Foto adicional 5">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicMUT7.jpg" alt="Foto adicional 6">
-                </div>
-            </div>
         </div>
     </div>
 </div>
-</section>
+
+<script>
+    let slideIndex11 = 0;
+    let images11 = [
+        "fotoicMUT.jpg", "fotoicMUT2.jpg", "fotoicMUT3.jpg", "fotoicMUT4.jpg", "fotoicMUT5.jpg", "fotoicMUT6.jpg", "fotoicMUT7.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal11') return;
+        slideIndex11 += step;
+        if (slideIndex11 >= images11.length) slideIndex11 = 0;
+        if (slideIndex11 < 0) slideIndex11 = images11.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images11[slideIndex11];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal11') return;
+        slideIndex11 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images11[slideIndex11];
+    }
+</script>
 
 
-<!-- Modal 12 -->
+
+<!-- Modal 12 con carrusel -->
 <div id="modal12" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal12')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fotoicL.jpg" alt="Proyecto 12" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal12')">&#10094;</button>
+            <img class="carousel-image" src="fotoicL.jpg" alt="Proyecto 12">
+            <button class="next" onclick="changeSlide(1, 'modal12')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal12')"><img src="fotoicL.jpg" alt="Foto 1"></div>
         </div>
 
         <div class="modal-description">
@@ -1034,23 +1150,50 @@
                 asegurando durabilidad y estética. La propuesta incluyó recepciones personalizadas, 
                 áreas de espera con confort optimizado y detalles decorativos alineados con la identidad visual del espacio.
             </p>
-            
-            
-
-            </div>
         </div>
     </div>
 </div>
-</section>
+
+<script>
+    let slideIndex12 = 0;
+    let images12 = [
+        "fotoicL.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal12') return;
+        slideIndex12 += step;
+        if (slideIndex12 >= images12.length) slideIndex12 = 0;
+        if (slideIndex12 < 0) slideIndex12 = images12.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images12[slideIndex12];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal12') return;
+        slideIndex12 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images12[slideIndex12];
+    }
+</script>
 
 
-<!-- Modal 13 -->
+<!-- Modal 13 con carrusel -->
 <div id="modal13" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal13')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fotoicOLG2.jpg" alt="Proyecto 13" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal13')">&#10094;</button>
+            <img class="carousel-image" src="fotoicOLG2.jpg" alt="Proyecto 13">
+            <button class="next" onclick="changeSlide(1, 'modal13')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal13')"><img src="fotoicOLG2.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal13')"><img src="fotoicOLG.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal13')"><img src="fotoicOLG3.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal13')"><img src="fotoicOLG4.jpg" alt="Foto 4"></div>
         </div>
 
         <div class="modal-description">
@@ -1061,32 +1204,53 @@
                 de primera línea para garantizar resistencia y diseño sofisticado. Incluye escritorios ejecutivos,
                 mesas de reuniones y espacios de almacenamiento optimizados.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="fotoicOLG.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicOLG3.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicOLG4.jpg" alt="Foto adicional 3">
-                </div>
-            </div>
         </div>
     </div>
 </div>
-</section>
+
+<script>
+    let slideIndex13 = 0;
+    let images13 = [
+        "fotoicOLG2.jpg", "fotoicOLG.jpg", "fotoicOLG3.jpg", "fotoicOLG4.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal13') return;
+        slideIndex13 += step;
+        if (slideIndex13 >= images13.length) slideIndex13 = 0;
+        if (slideIndex13 < 0) slideIndex13 = images13.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images13[slideIndex13];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal13') return;
+        slideIndex13 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images13[slideIndex13];
+    }
+</script>
 
 
-<!-- Modal 14 -->
+<!-- Modal 14 con carrusel -->
 <div id="modal14" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal14')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fotoicRV3.jpg" alt="Proyecto 14" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal14')">&#10094;</button>
+            <img class="carousel-image" src="fotoicRV3.jpg" alt="Proyecto 14">
+            <button class="next" onclick="changeSlide(1, 'modal14')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal14')"><img src="fotoicRV3.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal14')"><img src="fotoicRV2.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal14')"><img src="fotoicRV.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal14')"><img src="fotoicRV4.jpg" alt="Foto 4"></div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal14')"><img src="fotoicRV5.jpg" alt="Foto 5"></div>
+            <div class="thumbnail" onclick="setSlide(5, 'modal14')"><img src="fotoicRV6.jpg" alt="Foto 6"></div>
+            <div class="thumbnail" onclick="setSlide(6, 'modal14')"><img src="fotoicRV7.jpg" alt="Foto 7"></div>
         </div>
 
         <div class="modal-description">
@@ -1096,41 +1260,50 @@
                 Se priorizó un diseño atractivo y funcional, con materiales duraderos y acabados de alta calidad.
                 La exhibición resalta los productos de la marca, optimizando la experiencia del cliente dentro de la tienda.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="fotoicRV2.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicRV.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicRV4.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicRV5.jpg" alt="Foto adicional 4">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicRV6.jpg" alt="Foto adicional 5">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicRV7.jpg" alt="Foto adicional 6">
-                </div>
-            </div>
         </div>
     </div>
 </div>
-</section>
+
+<script>
+    let slideIndex14 = 0;
+    let images14 = [
+        "fotoicRV3.jpg", "fotoicRV2.jpg", "fotoicRV.jpg", "fotoicRV4.jpg", "fotoicRV5.jpg", "fotoicRV6.jpg", "fotoicRV7.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal14') return;
+        slideIndex14 += step;
+        if (slideIndex14 >= images14.length) slideIndex14 = 0;
+        if (slideIndex14 < 0) slideIndex14 = images14.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images14[slideIndex14];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal14') return;
+        slideIndex14 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images14[slideIndex14];
+    }
+</script>
 
 
-<!-- Modal 15 -->
+<!-- Modal 15 con carrusel -->
 <div id="modal15" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal15')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fotoicPE.jpg" alt="Proyecto 15" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal15')">&#10094;</button>
+            <img class="carousel-image" src="fotoicPE.jpg" alt="Proyecto 15">
+            <button class="next" onclick="changeSlide(1, 'modal15')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal15')"><img src="fotoicPE.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal15')"><img src="fotoicPE2.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal15')"><img src="fotoicPE3.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal15')"><img src="fotoicPE4.jpg" alt="Foto 4"></div>
         </div>
 
         <div class="modal-description">
@@ -1140,23 +1313,30 @@
                 logrando un ambiente cálido y acogedor que potencia la experiencia del cliente.
                 Se utilizaron materiales resistentes con acabados detallados para resaltar la identidad de la marca.
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="fotoicPE2.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicPE3.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicPE4.jpg" alt="Foto adicional 3">
-                </div>
-            </div>
         </div>
     </div>
 </div>
-</section>
+
+<script>
+    let slideIndex15 = 0;
+    let images15 = [
+        "fotoicPE.jpg", "fotoicPE2.jpg", "fotoicPE3.jpg", "fotoicPE4.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal15') return;
+        slideIndex15 += step;
+        if (slideIndex15 >= images15.length) slideIndex15 = 0;
+        if (slideIndex15 < 0) slideIndex15 = images15.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images15[slideIndex15];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal15') return;
+        slideIndex15 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images15[slideIndex15];
+    }
+</script>
 
 
 <!-- Modal 16 -->
@@ -1324,19 +1504,43 @@ window.addEventListener('scroll', function() {
         }
     });
 </script>
+
+
 <script>
     let slideIndexes = {
         modal1: 0,
         modal2: 0,
         modal3: 0,
-        modal4: 0
+        modal4: 0,
+        modal5: 0,
+        modal6: 0,
+        modal7: 0,
+        modal8: 0,
+        modal9: 0,
+        modal10: 0,
+        modal11: 0,
+        modal12: 0,
+        modal13: 0,
+        modal14: 0,
+        modal15: 0
     };
 
     let imageSets = {
         modal1: ["closette1.jpg", "closette2.jpg", "closette3.jpg", "closette4.jpg", "closette5.jpg"],
         modal2: ["cocinaab1.jpg", "cocinaab4.jpg", "cocinaab5.jpg", "cocinaab6.jpg", "cocinaab7.jpg"],
         modal3: ["fotoicBZ.jpg", "fotoicBZ4.jpg", "fotoicBZ2.jpg", "fotoicBZ3.jpg", "fotoicBZ5.jpg", "fotoicBZ7.jpg"],
-        modal4: ["cocinamo1.jpg", "fotoicBC.jpg", "fotoicBC2.jpg", "fotoicBC4.jpg", "cocinamo5.jpg"]
+        modal4: ["cocinamo1.jpg", "fotoicBC.jpg", "fotoicBC2.jpg", "fotoicBC4.jpg", "cocinamo5.jpg"],
+        modal5: ["cruzv1.jpg", "cruzv2.jpg", "cruzv3.jpg", "cruzv4.jpg", "cruzv5.jpg"],
+        modal6: ["fotoic9.jpg", "dulce2.jpg", "dulce3.jpg", "fotoic10.jpg", "dulce1.jpg"],
+        modal7: ["escritorioin4.jpg", "escritorioin1.jpg", "escritorioin3.jpg", "escritorioin5.jpg", "escritorioin6.jpg"],
+        modal8: ["fiold5.jpg", "fiold1.jpg", "fiold2.jpg", "fiold3.jpg", "fiold4.jpg"],
+        modal9: ["fotoicCA6.jpg", "fotoicCA2.jpg", "fotoicCA3.jpg", "fotoicCA4.jpg", "fotoicCA5.jpg", "fotoicCA.jpg"],
+        modal10: ["fotoicWC7.jpg", "fotoicWC.jpg", "fotoicWC2.jpg", "fotoicWC3.jpg", "fotoicWC5.jpg", "fotoicWC6.jpg", "fotoicWC4.jpg"],
+        modal11: ["fotoicMUT.jpg", "fotoicMUT2.jpg", "fotoicMUT3.jpg", "fotoicMUT4.jpg", "fotoicMUT5.jpg", "fotoicMUT6.jpg", "fotoicMUT7.jpg"],
+        modal12: ["fotoicL.jpg"],
+        modal13: ["fotoicOLG2.jpg", "fotoicOLG.jpg", "fotoicOLG3.jpg", "fotoicOLG4.jpg"],
+        modal14: ["fotoicRV3.jpg", "fotoicRV2.jpg", "fotoicRV.jpg", "fotoicRV4.jpg", "fotoicRV5.jpg", "fotoicRV6.jpg", "fotoicRV7.jpg"],
+        modal15: ["fotoicPE.jpg", "fotoicPE2.jpg", "fotoicPE3.jpg", "fotoicPE4.jpg"]
     };
 
     function changeSlide(step, modalId) {
