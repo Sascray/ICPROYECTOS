@@ -374,7 +374,7 @@
             <div class="gallery-item" onclick="openModal('modal6')">
                 <img src="fotoic9.jpg" alt="Proyecto 6">
                 <div class="overlay">
-                    <h3>Proyecto Dulce Entorno Kenedy</h3>
+                    <h3>Proyecto Dulcentorno Kenedy</h3>
                 </div>
             </div>
 
@@ -439,7 +439,7 @@
             <div class="gallery-item" onclick="openModal('modal15')">
                 <img src="fotoicPE.jpg" alt="Proyecto 15">
                 <div class="overlay">
-                    <h3>Proyecto Dulce Entorno Mall Plaza Egaña</h3>
+                    <h3>Proyecto Dulcentorno Mall Plaza Egaña</h3>
                 </div>
             </div>
 
@@ -447,7 +447,7 @@
         </div>
     </section>
     
-<!-- Agregar carrusel dentro del modal -->
+<!-- Modal 1 con carrusel corregido -->
 <div id="modal1" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal1')">&times;</span>
@@ -455,7 +455,7 @@
         <!-- Carrusel de imágenes -->
         <div class="carousel-container">
             <button class="prev" onclick="changeSlide(-1, 'modal1')">&#10094;</button>
-            <img class="carousel-image" src="closette1.jpg" alt="Proyecto 1">
+            <img class="carousel-image" id="modal1-image" src="closette1.jpg" alt="Proyecto 1">
             <button class="next" onclick="changeSlide(1, 'modal1')">&#10095;</button>
         </div>
 
@@ -489,10 +489,13 @@
     }
 
     .carousel-image {
-        width: 100%;
-        max-height: 500px;
+        width: auto;
+        max-width: 90%;
+        max-height: 400px;
         object-fit: contain;
         border-radius: 10px;
+        display: block;
+        margin: 0 auto;
     }
 
     .prev, .next {
@@ -533,22 +536,23 @@
 </style>
 
 <script>
-    let slideIndex = 0;
-    let images = [
+    let slideIndex1 = 0;
+    let images1 = [
         "closette1.jpg", "closette2.jpg", "closette3.jpg", "closette4.jpg", "closette5.jpg"
     ];
 
     function changeSlide(step, modalId) {
-        slideIndex += step;
-        if (slideIndex >= images.length) slideIndex = 0;
-        if (slideIndex < 0) slideIndex = images.length - 1;
-
-        document.querySelector(`#${modalId} .carousel-image`).src = images[slideIndex];
+        if (modalId !== 'modal1') return;
+        slideIndex1 += step;
+        if (slideIndex1 >= images1.length) slideIndex1 = 0;
+        if (slideIndex1 < 0) slideIndex1 = images1.length - 1;
+        document.getElementById("modal1-image").src = images1[slideIndex1];
     }
 
     function setSlide(index, modalId) {
-        slideIndex = index;
-        document.querySelector(`#${modalId} .carousel-image`).src = images[slideIndex];
+        if (modalId !== 'modal1') return;
+        slideIndex1 = index;
+        document.getElementById("modal1-image").src = images1[slideIndex1];
     }
 </script>
 
@@ -778,7 +782,7 @@
         </div>
 
         <div class="modal-description">
-            <h3>Proyecto Dulce Entorno Kenedy</h3>
+            <h3>Proyecto Dulcentorno Kenedy</h3>
             <p>
                 Este proyecto consistió en crear un ambiente acogedor para un local de repostería. 
                 Diseñamos muebles personalizados, incluyendo vitrinas exhibidoras con vidrio templado para destacar los productos. 
@@ -1130,7 +1134,7 @@
         </div>
 
         <div class="modal-description">
-            <h3>Proyecto Dulce Entorno Mall Plaza Egaña</h3>
+            <h3>Proyecto Dulcentorno Mall Plaza Egaña</h3>
             <p>
                 Desarrollamos e instalamos el mobiliario para la tienda Dulce Entorno en Mall Plaza Egaña,
                 logrando un ambiente cálido y acogedor que potencia la experiencia del cliente.
@@ -1320,5 +1324,38 @@ window.addEventListener('scroll', function() {
         }
     });
 </script>
+<script>
+    let slideIndexes = {
+        modal1: 0,
+        modal2: 0,
+        modal3: 0,
+        modal4: 0
+    };
+
+    let imageSets = {
+        modal1: ["closette1.jpg", "closette2.jpg", "closette3.jpg", "closette4.jpg", "closette5.jpg"],
+        modal2: ["cocinaab1.jpg", "cocinaab4.jpg", "cocinaab5.jpg", "cocinaab6.jpg", "cocinaab7.jpg"],
+        modal3: ["fotoicBZ.jpg", "fotoicBZ4.jpg", "fotoicBZ2.jpg", "fotoicBZ3.jpg", "fotoicBZ5.jpg", "fotoicBZ7.jpg"],
+        modal4: ["cocinamo1.jpg", "fotoicBC.jpg", "fotoicBC2.jpg", "fotoicBC4.jpg", "cocinamo5.jpg"]
+    };
+
+    function changeSlide(step, modalId) {
+        let slideIndex = slideIndexes[modalId];
+        let images = imageSets[modalId];
+
+        slideIndex += step;
+        if (slideIndex >= images.length) slideIndex = 0;
+        if (slideIndex < 0) slideIndex = images.length - 1;
+
+        slideIndexes[modalId] = slideIndex;
+        document.querySelector(`#${modalId} .carousel-image`).src = images[slideIndex];
+    }
+
+    function setSlide(index, modalId) {
+        slideIndexes[modalId] = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = imageSets[modalId][index];
+    }
+</script>
+
 </body>
 </html>
