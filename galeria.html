@@ -443,6 +443,26 @@
                     <h3>Proyecto Dulcentorno Mall Plaza Egaña</h3>
                 </div>
             </div>
+            <!-- Imagen 16 -->
+            <div class="gallery-item" onclick="openModal('modal16')">
+                <img src="fotoicCV.jpg" alt="Proyecto 16">
+                <div class="overlay">
+                    <h3>Proyecto Cruz Verde Jose Luis Coo</h3>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('modal17')">
+                <img src="fotoicBE3.jpg" alt="Proyecto 17">
+                <div class="overlay">
+                    <h3>Proyecto Biblioteca Enrique Foster</h3>
+                </div>
+            </div>
+            <div class="gallery-item" onclick="openModal('modal18')">
+                <img src="fotoicCC.jpg" alt="Proyecto 18">
+                <div class="overlay">
+                    <h3>Proyecto Casa Chamisero</h3>
+                </div>
+            </div>
+            
 
 
         </div>
@@ -1336,49 +1356,188 @@
 </script>
 
 
-<!-- Modal 16 -->
+<!-- Modal 16 con carrusel -->
 <div id="modal16" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal16')">&times;</span>
         
-        <div class="main-image-container">
-            <img src="fotoicMUT.jpg" alt="Proyecto 16" class="main-image">
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal16')">&#10094;</button>
+            <img class="carousel-image" src="fotoicCV.jpg" alt="Proyecto 16">
+            <button class="next" onclick="changeSlide(1, 'modal16')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal16')">
+                <img src="fotoicCV.jpg" alt="Foto 1">
+            </div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal16')">
+                <img src="fotoicCV2.jpg" alt="Foto 2">
+            </div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal16')">
+                <img src="fotoicCV3.jpg" alt="Foto 3">
+            </div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal16')">
+                <img src="fotoicCV4.jpg" alt="Foto 4">
+            </div>
+            <div class="thumbnail" onclick="setSlide(4, 'modal16')">
+                <img src="fotoicCV5.jpg" alt="Foto 5">
+            </div>
         </div>
 
         <div class="modal-description">
-            <h3>por verse</h3>
+            <h3>Proyecto Cruz Verde Jose Luis Coo</h3>
             <p>
-                Desarrollamos e instalamos mobiliario a medida para el lobby de un edificio corporativo,
-                logrando un ambiente sofisticado y funcional. Se emplearon materiales de alta resistencia
-                con acabados premium. El mobiliario incluye recepciones, áreas de espera y detalles decorativos
-                que refuerzan la identidad visual del espacio.
+                editar
             </p>
-            
-            
-            <div class="image-grid">
-                <div class="grid-item">
-                    <img src="fotoicMUT2.jpg" alt="Foto adicional 1">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicMUT3.jpg" alt="Foto adicional 2">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicMUT4.jpg" alt="Foto adicional 3">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicMUT5.jpg" alt="Foto adicional 4">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicMUT6.jpg" alt="Foto adicional 5">
-                </div>
-                <div class="grid-item">
-                    <img src="fotoicMUT7.jpg" alt="Foto adicional 6">
-                </div>
-            </div>
         </div>
     </div>
 </div>
-</section>
+
+<script>
+    let slideIndex16 = 0;
+    let images16 = [
+        "fotoicCV.jpg", "fotoicCV2.jpg", "fotoicCV3.jpg", "fotoicCV4.jpg", "fotoicCV5.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal16') return;
+        slideIndex16 += step;
+        if (slideIndex16 >= images16.length) slideIndex16 = 0;
+        if (slideIndex16 < 0) slideIndex16 = images16.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images16[slideIndex16];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal16') return;
+        slideIndex16 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images16[slideIndex16];
+    }
+</script>
+
+<!-- Modal 17 con carrusel -->
+<div id="modal17" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal17')">&times;</span>
+        
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal17')">&#10094;</button>
+            <img class="carousel-image" src="fotoicBE.jpg" alt="Proyecto 17">
+            <button class="next" onclick="changeSlide(1, 'modal17')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal17')">
+                <img src="fotoicBE.jpg" alt="Foto 1">
+            </div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal17')">
+                <img src="fotoicBE2.jpg" alt="Foto 2">
+            </div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal17')">
+                <img src="fotoicBE3.jpg" alt="Foto 3">
+            </div>
+        </div>
+
+        <div class="modal-description">
+            <h3>Proyecto Biblioteca Enrique Foster/h3>
+            <p>
+                Este proyecto consistió en diseñar e instalar una biblioteca de alto nivel,
+                que combina áreas de lectura, exposición y almacenamiento de libros.
+                Se utilizaron materiales de alta calidad y acabados sofisticados, creando un ambiente moderno,
+                funcional y acogedor para el estudio y la cultura.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    let slideIndex17 = 0;
+    let images17 = [
+        "fotoicBE.jpg", "fotoicBE2.jpg", "fotoicBE3.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal17') return;
+        slideIndex17 += step;
+        if (slideIndex17 >= images17.length) slideIndex17 = 0;
+        if (slideIndex17 < 0) slideIndex17 = images17.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images17[slideIndex17];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal17') return;
+        slideIndex17 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images17[slideIndex17];
+    }
+</script>
+
+<!-- Modal 18 con carrusel -->
+<div id="modal18" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal18')">&times;</span>
+        
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal18')">&#10094;</button>
+            <img class="carousel-image" src="fotoicCC.jpg" alt="Proyecto 18">
+            <button class="next" onclick="changeSlide(1, 'modal18')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal18')">
+                <img src="fotoicCC.jpg" alt="Foto 1">
+            </div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal18')">
+                <img src="fotoicCC2.jpg" alt="Foto 2">
+            </div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal18')">
+                <img src="fotoicCC3.jpg" alt="Foto 3">
+            </div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal18')">
+                <img src="fotoicCC4.jpg" alt="Foto 4">
+            </div>
+        </div>
+
+        <div class="modal-description">
+            <h3>Proyecto Casa Chamisero</h3>
+            <p>
+                Este proyecto consistió en transformar una vivienda en un espacio único y moderno,
+                combinando elementos contemporáneos y rústicos. Se diseñó un ambiente cálido y funcional,
+                utilizando materiales de primera calidad y detalles personalizados que resaltan
+                la identidad y el estilo del hogar.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    let slideIndex18 = 0;
+    let images18 = [
+        "fotoicCC.jpg", "fotoicCC2.jpg", "fotoicCC3.jpg", "fotoicCC4.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal18') return;
+        slideIndex18 += step;
+        if (slideIndex18 >= images18.length) slideIndex18 = 0;
+        if (slideIndex18 < 0) slideIndex18 = images18.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images18[slideIndex18];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal18') return;
+        slideIndex18 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images18[slideIndex18];
+    }
+</script>
+
+
+
 
 <footer>
     <div class="footer-content">
@@ -1484,7 +1643,10 @@
         modal12: 0,
         modal13: 0,
         modal14: 0,
-        modal15: 0
+        modal15: 0,
+        modal16: 0,
+        modal17: 0,
+        modal18: 0
     };
 
     let imageSets = {
@@ -1502,7 +1664,10 @@
         modal12: ["fotoicL.jpg", "fotoicL2.jpg", "fotoicL3.jpg"],
         modal13: ["fotoicOLG2.jpg", "fotoicOLG.jpg", "fotoicOLG3.jpg", "fotoicOLG4.jpg"],
         modal14: ["fotoicRV3.jpg", "fotoicRV2.jpg", "fotoicRV.jpg", "fotoicRV4.jpg", "fotoicRV5.jpg", "fotoicRV6.jpg", "fotoicRV7.jpg"],
-        modal15: ["fotoicPE.jpg", "fotoicPE2.jpg", "fotoicPE3.jpg", "fotoicPE4.jpg"]
+        modal15: ["fotoicPE.jpg", "fotoicPE2.jpg", "fotoicPE3.jpg", "fotoicPE4.jpg"],
+        modal16: ["fotoicCV.jpg", "fotoicCV2.jpg", "fotoicCV3.jpg", "fotoicCV4.jpg", "fotoicCV5.jpg"],
+        modal17: ["fotoicBE.jpg", "fotoicBE2.jpg", "fotoicBE3.jpg"],
+        modal18: ["fotoicCC.jpg", "fotoicCC2.jpg", "fotoicCC3.jpg", "fotoicCC4.jpg"]
     };
 
     function changeSlide(step, modalId) {
