@@ -333,7 +333,7 @@
             <!-- Las imágenes y modales se mantienen igual que en tu código original -->
             <!-- Solo copié una como ejemplo, deberías mantener todas tus imágenes -->
             <div class="gallery-item" onclick="openModal('modal1')">
-                <img src="closette5.jpg" alt="Proyecto 1">
+                <img src="fotoicTE2.jpg" alt="Proyecto 1">
                 <div class="overlay">
                     <h3>Proyecto Closet Batuco</h3>
                 </div>
@@ -359,7 +359,7 @@
             <div class="gallery-item" onclick="openModal('modal4')">
                 <img src="cocinamo1.jpg" alt="Proyecto 4">
                 <div class="overlay">
-                    <h3>Proyecto Cocina Moderna</h3>
+                    <h3>Proyecto Cocina Las Brisas</h3>
                 </div>
             </div>
     
@@ -383,7 +383,7 @@
             <div class="gallery-item" onclick="openModal('modal7')">
                 <img src="escritorioin2.jpg" alt="Proyecto 7">
                 <div class="overlay">
-                    <h3>Proyecto Escritorio</h3>
+                    <h3>Proyecto Escritorio Isla de Maipo</h3>
                 </div>
             </div>
 
@@ -456,15 +456,15 @@
         <!-- Carrusel de imágenes -->
         <div class="carousel-container">
             <button class="prev" onclick="changeSlide(-1, 'modal1')">&#10094;</button>
-            <img class="carousel-image" id="modal1-image" src="closette1.jpg" alt="Proyecto 1">
+            <img class="carousel-image" id="modal1-image" src="fotoicTE.jpg" alt="Proyecto 1">
             <button class="next" onclick="changeSlide(1, 'modal1')">&#10095;</button>
         </div>
 
         <!-- Galería de imágenes adicionales debajo del carrusel -->
         <div class="image-thumbnails">
-            <div class="thumbnail" onclick="setSlide(0, 'modal1')"><img src="closette1.jpg" alt="Foto 1"></div>
-            <div class="thumbnail" onclick="setSlide(1, 'modal1')"><img src="closette2.jpg" alt="Foto 2"></div>
-            <div class="thumbnail" onclick="setSlide(2, 'modal1')"><img src="closette3.jpg" alt="Foto 3"></div>
+            <div class="thumbnail" onclick="setSlide(0, 'modal1')"><img src="fotoicTE.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal1')"><img src="fotoicTE2.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal1')"><img src="fotoicTE3.jpg" alt="Foto 3"></div>
             <div class="thumbnail" onclick="setSlide(3, 'modal1')"><img src="closette4.jpg" alt="Foto 4"></div>
             <div class="thumbnail" onclick="setSlide(4, 'modal1')"><img src="closette5.jpg" alt="Foto 5"></div>
         </div>
@@ -539,7 +539,7 @@
 <script>
     let slideIndex1 = 0;
     let images1 = [
-        "closette1.jpg", "closette2.jpg", "closette3.jpg", "closette4.jpg", "closette5.jpg"
+        "fotoicTE.jpg", "fotoicTE2.jpg", "fotoicTE3.jpg", "closette4.jpg", "closette5.jpg"
     ];
 
     function changeSlide(step, modalId) {
@@ -867,7 +867,7 @@
         </div>
 
         <div class="modal-description">
-            <h3>Proyecto Escritorio</h3>
+            <h3>Proyecto Escritorio Isla de Maipo</h3>
             <p>
                 Este proyecto consistió en diseñar e instalar un escritorio personalizado, ideal para un espacio de trabajo moderno y ergonómico. 
                 Fabricado con melamina de alta resistencia en tonos naturales, el diseño incluye compartimentos funcionales para almacenamiento 
@@ -1135,6 +1135,8 @@
         <!-- Galería de imágenes adicionales debajo del carrusel -->
         <div class="image-thumbnails">
             <div class="thumbnail" onclick="setSlide(0, 'modal12')"><img src="fotoicL.jpg" alt="Foto 1"></div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal12')"><img src="fotoicL2.jpg" alt="Foto 2"></div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal12')"><img src="fotoicL3.jpg" alt="Foto 3"></div>
         </div>
 
         <div class="modal-description">
@@ -1152,7 +1154,7 @@
 <script>
     let slideIndex12 = 0;
     let images12 = [
-        "fotoicL.jpg"
+        "fotoicL.jpg", "fotoicL2.jpg", "fotoicL3.jpg"
     ];
 
     function changeSlide(step, modalId) {
@@ -1486,7 +1488,7 @@
     };
 
     let imageSets = {
-        modal1: ["closette1.jpg", "closette2.jpg", "closette3.jpg", "closette4.jpg", "closette5.jpg"],
+        modal1: ["fotoicTE.jpg", "fotoicTE2.jpg", "fotoicTE3.jpg", "closette4.jpg", "closette5.jpg"],
         modal2: ["cocinaab1.jpg", "cocinaab4.jpg", "cocinaab5.jpg", "cocinaab6.jpg", "cocinaab7.jpg"],
         modal3: ["fotoicBZ.jpg", "fotoicBZ4.jpg", "fotoicBZ2.jpg", "fotoicBZ3.jpg", "fotoicBZ5.jpg", "fotoicBZ7.jpg"],
         modal4: ["cocinamo1.jpg", "fotoicBC.jpg", "fotoicBC2.jpg", "fotoicBC4.jpg", "cocinamo5.jpg"],
@@ -1497,7 +1499,7 @@
         modal9: ["fotoicCA2.jpg", "fotoicCA4.jpg", "fotoicCA5.jpg", "fotoicCA.jpg"],
         modal10: ["fotoicWC8.jpg", "fotoicWC.jpg", "fotoicWC2.jpg", "fotoicWC9.jpg"],
         modal11: ["fotoicMUT.jpg", "fotoicMUT2.jpg", "fotoicMUT3.jpg", "fotoicMUT4.jpg", "fotoicMUT5.jpg", "fotoicMUT6.jpg", "fotoicMUT7.jpg"],
-        modal12: ["fotoicL.jpg"],
+        modal12: ["fotoicL.jpg", "fotoicL2.jpg", "fotoicL3.jpg"],
         modal13: ["fotoicOLG2.jpg", "fotoicOLG.jpg", "fotoicOLG3.jpg", "fotoicOLG4.jpg"],
         modal14: ["fotoicRV3.jpg", "fotoicRV2.jpg", "fotoicRV.jpg", "fotoicRV4.jpg", "fotoicRV5.jpg", "fotoicRV6.jpg", "fotoicRV7.jpg"],
         modal15: ["fotoicPE.jpg", "fotoicPE2.jpg", "fotoicPE3.jpg", "fotoicPE4.jpg"]
