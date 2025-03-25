@@ -1420,52 +1420,7 @@
 </footer>
 
 <script>
-    function openModal(modalId) {
-    document.getElementById(modalId).style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Previene el scroll del body cuando el modal está abierto
-}
-
-function closeModal(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-    document.body.style.overflow = 'auto'; // Restaura el scroll del body
-}
-
-// Cerrar el modal cuando se hace clic fuera del contenido
-window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-        event.target.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    }
-}
-
-function toggleMenu() {
-    const menu = document.getElementById('menu');
-    menu.classList.toggle('active');
-}
-
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('header');
-    if (window.scrollY > 50) {
-        header.style.background = 'rgba(0, 0, 0, 0.9)';
-    } else {
-        header.style.background = 'rgba(0, 0, 0, 0.7)';
-    }
-});
-</script>
-<script>
-    // Función para obtener parámetros de la URL
-    function getQueryParam(param) {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get(param);
-    }
-
-    // Función para abrir el modal cuando se carga la página
-    document.addEventListener('DOMContentLoaded', function() {
-        const modalId = getQueryParam('modal');
-        if (modalId) {
-            openModal(modalId);
-        }
-    });
+    // Funciones para modales, menú y scroll
 
     function openModal(modalId) {
         document.getElementById(modalId).style.display = 'block';
@@ -1475,14 +1430,6 @@ window.addEventListener('scroll', function() {
     function closeModal(modalId) {
         document.getElementById(modalId).style.display = 'none';
         document.body.style.overflow = 'auto';
-    }
-
-    // Cerrar el modal cuando se hace clic fuera del contenido
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
     }
 
     function toggleMenu() {
@@ -1498,10 +1445,28 @@ window.addEventListener('scroll', function() {
             header.style.background = 'rgba(0, 0, 0, 0.7)';
         }
     });
+
+    // Cerrar el modal cuando se hace clic fuera del contenido
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    };
+
+    // Abrir modal si hay ?modal=modalX en la URL
+    document.addEventListener('DOMContentLoaded', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const modalId = urlParams.get('modal');
+        if (modalId) {
+            openModal(modalId);
+        }
+    });
 </script>
 
-
 <script>
+    // Funciones para el carrusel de imágenes en cada modal
+
     let slideIndexes = {
         modal1: 0,
         modal2: 0,
@@ -1555,6 +1520,7 @@ window.addEventListener('scroll', function() {
         document.querySelector(`#${modalId} .carousel-image`).src = imageSets[modalId][index];
     }
 </script>
+
 
 </body>
 </html>
