@@ -450,16 +450,32 @@
                     <h3>Proyecto Cruz Verde Jose Luis Coo</h3>
                 </div>
             </div>
+            <!-- Imagen 17 -->
             <div class="gallery-item" onclick="openModal('modal17')">
                 <img src="fotoicBE3.jpg" alt="Proyecto 17">
                 <div class="overlay">
                     <h3>Proyecto Biblioteca Enrique Foster</h3>
                 </div>
             </div>
+            <!-- Imagen 18 -->
             <div class="gallery-item" onclick="openModal('modal18')">
                 <img src="fotoicCC.jpg" alt="Proyecto 18">
                 <div class="overlay">
                     <h3>Proyecto Casa Chamisero</h3>
+                </div>
+            </div>
+            <!-- Imagen 19 -->
+            <div class="gallery-item" onclick="openModal('modal19')">
+                <img src="fotoicMO3.jpg" alt="Proyecto 19">
+                <div class="overlay">
+                    <h3>Proyecto Dulcentorno Mall Plaza Oeste</h3>
+                </div>
+            </div>
+            <!-- Imagen 20 -->
+            <div class="gallery-item" onclick="openModal('modal20')">
+                <img src="fotoicLD.jpg" alt="Proyecto 20">
+                <div class="overlay">
+                    <h3>Proyecto Dulcentorno Mall Plaza Los Dominicos</h3>
                 </div>
             </div>
             
@@ -1542,6 +1558,124 @@
 </script>
 
 
+<!-- Modal 19 con carrusel -->
+<div id="modal19" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal19')">&times;</span>
+        
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal19')">&#10094;</button>
+            <img class="carousel-image" src="fotoicMO.jpg" alt="Proyecto 19">
+            <button class="next" onclick="changeSlide(1, 'modal19')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal19')">
+                <img src="fotoicMO.jpg" alt="Foto 1">
+            </div>
+            <div class="thumbnail" onclick="setSlide(0, 'modal19')">
+                <img src="fotoicMO2.jpg" alt="Foto 2">
+            </div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal19')">
+                <img src="fotoicMO3.jpg" alt="Foto 3">
+            </div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal19')">
+                <img src="fotoicMO4.jpg" alt="Foto 4">
+            </div>
+        </div>
+
+        <div class="modal-description">
+            <h3>Proyecto 19</h3>
+            <p>
+                Breve descripción del proyecto 19. Aquí puedes agregar información sobre
+                los materiales utilizados, el diseño y cualquier detalle relevante del proyecto.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    let slideIndex19 = 0;
+    let images19 = [
+        "fotoicMO.jpg", "fotoicMO2.jpg", "fotoicMO3.jpg", "fotoicMO4.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal19') return;
+        slideIndex19 += step;
+        if (slideIndex19 >= images19.length) slideIndex19 = 0;
+        if (slideIndex19 < 0) slideIndex19 = images19.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images19[slideIndex19];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal19') return;
+        slideIndex19 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images19[slideIndex19];
+    }
+</script>
+
+
+<!-- Modal 20 con carrusel -->
+<div id="modal20" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal20')">&times;</span>
+        
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal20')">&#10094;</button>
+            <img class="carousel-image" src="fotoicLD.jpg" alt="Proyecto 20">
+            <button class="next" onclick="changeSlide(1, 'modal20')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal20')">
+                <img src="fotoicLD2.jpg" alt="Foto 1">
+            </div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal20')">
+                <img src="fotoicLD3.jpg" alt="Foto 2">
+            </div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal20')">
+                <img src="fotoicLD4.jpg" alt="Foto 3">
+            </div>
+            <div class="thumbnail" onclick="setSlide(3, 'modal20')">
+                <img src="fotoicLD5.jpg" alt="Foto 4">
+            </div>
+        </div>
+
+        <div class="modal-description">
+            <h3>Proyecto 20</h3>
+            <p>
+                Descripción del proyecto 20. Aquí puedes agregar detalles sobre el diseño,
+                materiales utilizados y cualquier otra información relevante.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    let slideIndex20 = 0;
+    let images20 = [
+        "fotoicLD.jpg", "fotoicLD2.jpg", "fotoicLD3.jpg", "fotoicLD4.jpg", "fotoicLD5.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal20') return;
+        slideIndex20 += step;
+        if (slideIndex20 >= images20.length) slideIndex20 = 0;
+        if (slideIndex20 < 0) slideIndex20 = images20.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images20[slideIndex20];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal20') return;
+        slideIndex20 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images20[slideIndex20];
+    }
+</script>
 
 
 <footer>
@@ -1651,7 +1785,9 @@
         modal15: 0,
         modal16: 0,
         modal17: 0,
-        modal18: 0
+        modal18: 0,
+        modal19: 0,
+        modal20: 0
     };
 
     let imageSets = {
@@ -1672,7 +1808,9 @@
         modal15: ["fotoicPE.jpg", "fotoicPE2.jpg", "fotoicPE3.jpg", "fotoicPE4.jpg"],
         modal16: ["fotoicCV.jpg", "fotoicCV2.jpg", "fotoicCV3.jpg", "fotoicCV4.jpg", "fotoicCV5.jpg"],
         modal17: ["fotoicBE.jpg", "fotoicBE2.jpg", "fotoicBE3.jpg"],
-        modal18: ["fotoicCC.jpg", "fotoicCC2.jpg", "fotoicCC3.jpg", "fotoicCC4.jpg"]
+        modal18: ["fotoicCC.jpg", "fotoicCC2.jpg", "fotoicCC3.jpg", "fotoicCC4.jpg"],
+        modal19: ["fotoicMO.jpg", "fotoicMO2.jpg", "fotoicMO3.jpg", "fotoicMO4.jpg"],
+        modal20: ["fotoicLD.jpg", "fotoicLD2.jpg", "fotoicLD3.jpg", "fotoicLD4.jpg", "fotoicLD5.jpg"]
     };
 
     function changeSlide(step, modalId) {
