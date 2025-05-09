@@ -478,6 +478,13 @@
                     <h3>Proyecto Dulcentorno Mall Plaza Los Dominicos</h3>
                 </div>
             </div>
+            <!-- Imagen 21 -->
+            <div class="gallery-item" onclick="openModal('modal21')">
+                <img src="fotoicpv.jpg" alt="Proyecto 21">
+                <div class="overlay">
+                    <h3>Proyecto Dulcentorno Mall Plaza Vespucio</h3>
+                </div>
+            </div>
             
 
 
@@ -1682,6 +1689,66 @@
 </script>
 
 
+<!-- Modal 21 con carrusel -->
+<div id="modal21" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal21')">&times;</span>
+        
+        <!-- Carrusel de imágenes -->
+        <div class="carousel-container">
+            <button class="prev" onclick="changeSlide(-1, 'modal21')">&#10094;</button>
+            <img class="carousel-image" src="fotoicpv.jpg" alt="Proyecto 21">
+            <button class="next" onclick="changeSlide(1, 'modal21')">&#10095;</button>
+        </div>
+
+        <!-- Galería de imágenes adicionales debajo del carrusel -->
+        <div class="image-thumbnails">
+            <div class="thumbnail" onclick="setSlide(0, 'modal21')">
+                <img src="fotoicpv2.jpg" alt="Foto 1">
+            </div>
+            <div class="thumbnail" onclick="setSlide(0, 'modal21')">
+                <img src="fotoicpv3.jpg" alt="Foto 2">
+            </div>
+            <div class="thumbnail" onclick="setSlide(1, 'modal21')">
+                <img src="fotoicpv4.jpg" alt="Foto 3">
+            </div>
+            <div class="thumbnail" onclick="setSlide(2, 'modal21')">
+                <img src="fotoicpv5.jpg" alt="Foto 4">
+            </div>
+        </div>
+
+        <div class="modal-description">
+            <h3>Proyecto Dulcentorno Mall Plaza Oeste</h3>
+            <p>
+                En este proyecto diseñamos y fabricamos mobiliario personalizado para la tienda Dulcentorno en Mall Plaza Oeste, priorizando la exhibición de productos de repostería y dulces. 
+                Se utilizaron materiales resistentes y acabados detallados para lograr un ambiente atractivo y funcional, 
+                resaltando la identidad de la marca y optimizando la experiencia del cliente en cada visita.
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    let slideIndex21 = 0;
+    let images21 = [
+        "fotoicMO.jpg", "fotoicMO2.jpg", "fotoicMO3.jpg", "fotoicMO4.jpg"
+    ];
+
+    function changeSlide(step, modalId) {
+        if (modalId !== 'modal21') return;
+        slideIndex21 += step;
+        if (slideIndex21 >= images21.length) slideIndex21 = 0;
+        if (slideIndex21 < 0) slideIndex21 = images21.length - 1;
+        document.querySelector(`#${modalId} .carousel-image`).src = images21[slideIndex21];
+    }
+
+    function setSlide(index, modalId) {
+        if (modalId !== 'modal21') return;
+        slideIndex21 = index;
+        document.querySelector(`#${modalId} .carousel-image`).src = images21[slideIndex21];
+    }
+</script>
+
 <footer>
     <div class="footer-content">
         <div class="footer-section">
@@ -1791,7 +1858,8 @@
         modal17: 0,
         modal18: 0,
         modal19: 0,
-        modal20: 0
+        modal20: 0,
+        modal21: 0
     };
 
     let imageSets = {
@@ -1814,7 +1882,8 @@
         modal17: ["fotoicBE.jpg", "fotoicBE2.jpg", "fotoicBE3.jpg"],
         modal18: ["fotoicCC.jpg", "fotoicCC2.jpg", "fotoicCC3.jpg", "fotoicCC4.jpg"],
         modal19: ["fotoicMO.jpg", "fotoicMO2.jpg", "fotoicMO3.jpg", "fotoicMO4.jpg"],
-        modal20: ["fotoicLD.jpg", "fotoicLD2.jpg", "fotoicLD3.jpg", "fotoicLD4.jpg", "fotoicLD5.jpg"]
+        modal20: ["fotoicLD.jpg", "fotoicLD2.jpg", "fotoicLD3.jpg", "fotoicLD4.jpg", "fotoicLD5.jpg"],
+        modal21: ["fotoicpv.jpg", "fotoicpv2.jpg", "fotoicpv3.jpg", "fotoicpv4.jpg", "fotoicpv5.jpg"]
     };
 
     function changeSlide(step, modalId) {
